@@ -8,33 +8,56 @@ namespace StackAndQueue
 {
     class StackAndQueueOperations
     {
-        Node top;
+        Node front;
 
         //Push data at Top
-        public void Push(int data)
+        public void Enqueue(int data)
         {
             Node newNode = new Node(data);
-            top = Add(newNode);
+            Append(newNode);
         }
 
         //Add data at top
-        public Node Add(Node newNode)
+        public void Append(Node newNode)
         {
-            if (top == null)
+            if (front == null)
             {
-                top = newNode;
+                front = newNode;
             }
             else
             {
-                newNode.next = top;
-                top = newNode;
+                Node temp = GetLastNode();
+                temp.next = newNode;
+
             }
-            return top;
+        }
+
+        public Node GetLastNode()
+        {
+            Node temp = front;
+            while (temp.next != null)
+            {
+                temp = temp.next;
+            }
+            return temp;
+        }
+
+
+        //Dequeue data from front
+        public void Dequeue()
+        {
+            if (front == null)
+            {
+                Console.WriteLine("\nQueue is empty! Nothing to Pop");
+                return;
+            }
+            Console.WriteLine("\nDE QUEUED ELEMENT: {0}", front.data);
+            front = front.next;
         }
         //Display stack data
         public int Display()
         {
-            Node temp = top;
+            Node temp = front;
             int count = 0;
             while (temp != null)
             {
@@ -43,28 +66,6 @@ namespace StackAndQueue
                 temp = temp.next;
             }
             return count;
-        }
-
-        public void Pop()
-        {
-            if (top == null)
-            {
-                Console.WriteLine("\nStack is empty! Nothing to Pop");
-                return;
-            }
-            Console.WriteLine("\n***POPPED ELEMENT***\n{0}", Peek());
-            top = top.next;
-        }
-
-        //Peek at top element and return
-        public int Peek()
-        {
-            if (top == null)
-            {
-                Console.WriteLine("No element in stack to pop");
-                return -1;
-            }
-            return top.data;
         }
     }
 }

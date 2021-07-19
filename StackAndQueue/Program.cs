@@ -7,6 +7,7 @@ namespace StackAndQueue
         static void Main(string[] args)
         {
             //Creating object for stack and queue operations
+            //Creating object for stack and queue operations
             StackAndQueueOperations queue = new StackAndQueueOperations();
 
             //Push operations
@@ -18,6 +19,10 @@ namespace StackAndQueue
             //Display operation
             Console.Write("\n-----DISPLAYING QUEUE ELEMENTS-----\n\n");
             count = queue.Display();
+            for (int i = 0; i <= count; i++)
+            {
+                queue.Dequeue();
+            }   
 
         }
     }
