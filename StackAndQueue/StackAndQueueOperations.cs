@@ -32,7 +32,7 @@ namespace StackAndQueue
             return top;
         }
         //Display stack data
-        public void Display()
+        public int Display()
         {
             Node temp = top;
             int count = 0;
@@ -42,6 +42,29 @@ namespace StackAndQueue
                 Console.WriteLine("Stack element at {0} is: {1}", count, temp.data);
                 temp = temp.next;
             }
+            return count;
+        }
+
+        public void Pop()
+        {
+            if (top == null)
+            {
+                Console.WriteLine("\nStack is empty! Nothing to Pop");
+                return;
+            }
+            Console.WriteLine("\n***POPPED ELEMENT***\n{0}", Peek());
+            top = top.next;
+        }
+
+        //Peek at top element and return
+        public int Peek()
+        {
+            if (top == null)
+            {
+                Console.WriteLine("No element in stack to pop");
+                return -1;
+            }
+            return top.data;
         }
     }
 }

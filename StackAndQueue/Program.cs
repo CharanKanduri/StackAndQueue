@@ -15,7 +15,13 @@ namespace StackAndQueue
             stack.Push(56);
             //Display operation
             Console.Write("\n-----DISPLAYING STACK ELEMENTS-----\n\n");
-            stack.Display();
+           int count= stack.Display();
+
+            for (int i = 0; i <= count; i++)
+            {
+                stack.Pop();
+
+            }
 
         }
     }
