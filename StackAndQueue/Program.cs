@@ -7,21 +7,17 @@ namespace StackAndQueue
         static void Main(string[] args)
         {
             //Creating object for stack and queue operations
-            StackAndQueueOperations stack = new StackAndQueueOperations();
+            StackAndQueueOperations queue = new StackAndQueueOperations();
 
             //Push operations
-            stack.Push(70);
-            stack.Push(30);
-            stack.Push(56);
+            int count = 0;
+            queue.Enqueue(56);
+            queue.Enqueue(30);
+            queue.Enqueue(70);
+
             //Display operation
-            Console.Write("\n-----DISPLAYING STACK ELEMENTS-----\n\n");
-           int count= stack.Display();
-
-            for (int i = 0; i <= count; i++)
-            {
-                stack.Pop();
-
-            }
+            Console.Write("\n-----DISPLAYING QUEUE ELEMENTS-----\n\n");
+            count = queue.Display();
 
         }
     }
